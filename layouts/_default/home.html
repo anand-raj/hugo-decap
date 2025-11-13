@@ -13,7 +13,9 @@
 <section class="grid-overview">
   <h2>Latest Articles</h2>
   <div class="cards">
-  {{ $articles := (where (where .Site.AllPages "Type" "!=" "taxonomy") "Section" "articles") | sort "Date" "desc" | first 6 }}
+    {{ $articles := where .Site.RegularPages "Section" "articles" }}
+  {{ $articles = sort $articles "Date" "desc" }}
+  {{ $articles = first 6 $articles }}
   {{ if $articles }}
     {{ range $articles }}
     <article class="card">
@@ -34,7 +36,9 @@
 <section class="upcoming-events">
   <h2>Upcoming Events</h2>
   <div class="cards">
-    {{ $events := (where (where .Site.AllPages "Type" "!=" "taxonomy") "Section" "events") | sort "Date" "desc" | first 4 }}
+        {{ $events := where .Site.RegularPages "Section" "events" }}
+    {{ $events = sort $events "Date" "desc" }}
+    {{ $events = first 4 $events }}
     {{ if $events }}
       {{ range $events }}
       <article class="card event">

@@ -1,4 +1,16 @@
-{{ define "main" }}
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>{{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Site.Title }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "index.xml" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+  </head>
+  <body>
+    {{ partial "header.html" . }}
+    <main class="container">
 <section class="hero">
   <div class="hero-inner">
     <h1>{{ .Site.Title }}</h1>
@@ -13,8 +25,9 @@
 <section class="grid-overview">
   <h2>Latest Articles</h2>
   <div class="cards">
-  {{ $articles := where .Site.RegularPages "Section" "articles" | sort "Date" "desc" | first 6 }}
-  {{ range $articles }}
+  {{ $articles := (where (where .Site.AllPages "Section" "articles") "Kind" "page") | sort "Date" "desc" | first 6 }}
+  {{ if $articles }}
+    {{ range $articles }}
     <article class="card">
       {{ with .Params.featuredImage }}<img src="{{ . | relURL }}" alt="{{ $.Title }}"/>{{ end }}
       <div class="card-body">
@@ -23,6 +36,9 @@
         <p class="excerpt">{{ .Summary }}</p>
       </div>
     </article>
+    {{ end }}
+  {{ else }}
+    <p>No articles yet.</p>
   {{ end }}
   </div>
 </section>
@@ -30,8 +46,9 @@
 <section class="upcoming-events">
   <h2>Upcoming Events</h2>
   <div class="cards">
-    {{ $events := where .Site.RegularPages "Section" "events" | sort "Date" "desc" | first 4 }}
-    {{ range $events }}
+    {{ $events := (where (where .Site.AllPages "Section" "events") "Kind" "page") | sort "Date" "desc" | first 4 }}
+    {{ if $events }}
+      {{ range $events }}
       <article class="card event">
         <div class="card-body">
           <p class="event-date">{{ with .Params.eventDate }}{{ . }}{{ else }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</p>
@@ -39,7 +56,14 @@
           <p class="meta">{{ with .Params.location }}{{ . }}{{ end }}</p>
         </div>
       </article>
+      {{ end }}
+    {{ else }}
+      <p>No events yet.</p>
     {{ end }}
   </div>
 </section>
-{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    <script src="{{ "js/menu.js" | relURL }}"></script>
+  </body>
+</html>

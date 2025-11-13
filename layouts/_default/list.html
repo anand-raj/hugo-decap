@@ -1,6 +1,6 @@
 {{ define "main" }}
+<p style="background: purple; color: white; padding: 10px; margin: 20px;">PAGE KIND: {{ .Kind }} | TITLE: {{ .Title }} | SECTION: {{ .Section }}</p>
 {{ if eq .Kind "home" }}
-<section class="hero">
   <div class="hero-inner">
     <h1>{{ .Site.Title }}</h1>
     <p class="lead">{{ with .Site.Params.tagline }}{{ . }}{{ else }}Latest news, articles and events.{{ end }}</p>
@@ -14,7 +14,9 @@
 <section class="grid-overview">
   <h2>Latest Articles</h2>
   <div class="cards">
-  {{ $articles := (where (where .Site.AllPages "Kind" "!=" "taxonomy") "Section" "articles") | sort "Date" "desc" | first 6 }}
+  {{ $debug := where .Site.AllPages "Section" "articles" }}
+  <p style="background: red; color: white; padding: 10px;">DEBUG: Found {{ len $debug }} pages in articles section</p>
+  {{ $articles := (where $debug "Kind" "page") | sort "Date" "desc" | first 6 }}
   {{ if $articles }}
     {{ range $articles }}
     <article class="card">
@@ -35,7 +37,7 @@
 <section class="upcoming-events">
   <h2>Upcoming Events</h2>
   <div class="cards">
-    {{ $events := (where (where .Site.AllPages "Kind" "!=" "taxonomy") "Section" "events") | sort "Date" "desc" | first 4 }}
+    {{ $events := (where (where .Site.AllPages "Section" "events") "Kind" "page") | sort "Date" "desc" | first 4 }}
     {{ if $events }}
       {{ range $events }}
       <article class="card event">
