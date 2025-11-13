@@ -15,15 +15,15 @@
   <div class="cards">
     {{ $articles := where .Site.RegularPages "Section" "articles" }}
   {{ $articles = sort $articles "Date" "desc" }}
-  {{ $articles = first 6 $articles }}
+  {{ $articles = first 4 $articles }}
   {{ if $articles }}
     {{ range $articles }}
     <article class="card">
-      {{ with .Params.featuredImage }}<img src="{{ . | relURL }}" alt="{{ $.Title }}"/>{{ end }}
       <div class="card-body">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <p class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ with .Params.author }}{{ . }}{{ end }}</p>
-        <p class="excerpt">{{ .Summary }}</p>
+        <p class="excerpt">{{ .Summary | truncate 150 }}</p>
+        <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
       </div>
     </article>
     {{ end }}
@@ -45,8 +45,7 @@
         <div class="card-body">
           <p class="event-date">{{ with .Params.eventDate }}{{ . }}{{ else }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</p>
           <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <p class="meta">{{ with .Params.location }}{{ . }}{{ end }}</p>
-        </div>
+          <a href="{{ .RelPermalink }}" class="read-more">View Details →</a>
       </article>
       {{ end }}
     {{ else }}

@@ -1,75 +1,17 @@
 {{ define "main" }}
-<p style="background: purple; color: white; padding: 10px; margin: 20px;">PAGE KIND: {{ .Kind }} | TITLE: {{ .Title }} | SECTION: {{ .Section }}</p>
-{{ if eq .Kind "home" }}
-  <div class="hero-inner">
-    <h1>{{ .Site.Title }}</h1>
-    <p class="lead">{{ with .Site.Params.tagline }}{{ . }}{{ else }}Latest news, articles and events.{{ end }}</p>
-    <nav class="home-ctas">
-      <a class="btn" href="{{ "articles/" | relURL }}">Articles</a>
-      <a class="btn secondary" href="{{ "events/" | relURL }}">Events</a>
-    </nav>
-  </div>
-</section>
-
-<section class="grid-overview">
-  <h2>Latest Articles</h2>
-  <div class="cards">
-  {{ $debug := where .Site.AllPages "Section" "articles" }}
-  <p style="background: red; color: white; padding: 10px;">DEBUG: Found {{ len $debug }} pages in articles section</p>
-  {{ $articles := (where $debug "Kind" "page") | sort "Date" "desc" | first 6 }}
-  {{ if $articles }}
-    {{ range $articles }}
-    <article class="card">
-      {{ with .Params.featuredImage }}<img src="{{ . | relURL }}" alt="{{ $.Title }}"/>{{ end }}
-      <div class="card-body">
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ with .Params.author }}{{ . }}{{ end }}</p>
-        <p class="excerpt">{{ .Summary }}</p>
-      </div>
-    </article>
-    {{ end }}
-  {{ else }}
-    <p>No articles yet.</p>
-  {{ end }}
-  </div>
-</section>
-
-<section class="upcoming-events">
-  <h2>Upcoming Events</h2>
-  <div class="cards">
-    {{ $events := (where (where .Site.AllPages "Section" "events") "Kind" "page") | sort "Date" "desc" | first 4 }}
-    {{ if $events }}
-      {{ range $events }}
-      <article class="card event">
-        <div class="card-body">
-          <p class="event-date">{{ with .Params.eventDate }}{{ . }}{{ else }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</p>
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <p class="meta">{{ with .Params.location }}{{ . }}{{ end }}</p>
-        </div>
-      </article>
-      {{ end }}
-    {{ else }}
-      <p>No events yet.</p>
-    {{ end }}
-  </div>
-</section>
-
-{{ else }}
-
 <h1>{{ .Title }}</h1>
 <div class="cards">
-  {{ range (where .Paginator.Pages "Kind" "!=" "section") }}
+  {{ range .Paginator.Pages }}
     <article class="card">
       <div class="card-body">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <p class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ with .Params.author }}{{ . }}{{ end }}</p>
-        <p class="excerpt">{{ .Summary }}</p>
+        <p class="excerpt">{{ .Summary | truncate 150 }}</p>
+        <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
       </div>
     </article>
   {{ end }}
 </div>
 
 {{ partial "paginator.html" . }}
-
-{{ end }}
 {{ end }}
