@@ -5,8 +5,6 @@ draft = true
 type = "article"
 description = ""
 author = ""
-tags = []
-categories = []
 featuredImage = ""
 +++
 

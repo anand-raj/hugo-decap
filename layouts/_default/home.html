@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{ if eq .Kind "home" }}
 <section class="hero">
   <div class="hero-inner">
     <h1>{{ .Site.Title }}</h1>
@@ -14,7 +13,7 @@
 <section class="grid-overview">
   <h2>Latest Articles</h2>
   <div class="cards">
-  {{ $articles := (where (where .Site.AllPages "Kind" "!=" "taxonomy") "Section" "articles") | sort "Date" "desc" | first 6 }}
+  {{ $articles := (where (where .Site.AllPages "Type" "!=" "taxonomy") "Section" "articles") | sort "Date" "desc" | first 6 }}
   {{ if $articles }}
     {{ range $articles }}
     <article class="card">
@@ -35,7 +34,7 @@
 <section class="upcoming-events">
   <h2>Upcoming Events</h2>
   <div class="cards">
-    {{ $events := (where (where .Site.AllPages "Kind" "!=" "taxonomy") "Section" "events") | sort "Date" "desc" | first 4 }}
+    {{ $events := (where (where .Site.AllPages "Type" "!=" "taxonomy") "Section" "events") | sort "Date" "desc" | first 4 }}
     {{ if $events }}
       {{ range $events }}
       <article class="card event">
@@ -51,23 +50,4 @@
     {{ end }}
   </div>
 </section>
-
-{{ else }}
-
-<h1>{{ .Title }}</h1>
-<div class="cards">
-  {{ range (where .Paginator.Pages "Kind" "!=" "section") }}
-    <article class="card">
-      <div class="card-body">
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ with .Params.author }}{{ . }}{{ end }}</p>
-        <p class="excerpt">{{ .Summary }}</p>
-      </div>
-    </article>
-  {{ end }}
-</div>
-
-{{ partial "paginator.html" . }}
-
-{{ end }}
 {{ end }}

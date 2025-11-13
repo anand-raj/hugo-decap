@@ -2,35 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/events/</loc>
-    <lastmod>2025-11-20T18:30:00+00:00</lastmod>
-  </url><url>
     <loc>https://example.org/</loc>
     <lastmod>2025-11-20T18:30:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/categories/announcements/</loc>
-    <lastmod>2025-11-13T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/articles/</loc>
-    <lastmod>2025-11-13T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://example.org/categories/</loc>
-    <lastmod>2025-11-13T09:00:00+00:00</lastmod>
   </url><url>
     <loc>https://example.org/articles/hello-world/</loc>
     <lastmod>2025-11-13T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/intro/</loc>
-    <lastmod>2025-11-13T09:00:00+00:00</lastmod>
+    <loc>https://example.org/articles/getting-started-hugo/</loc>
+    <lastmod>2025-11-12T14:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/</loc>
-    <lastmod>2025-11-13T09:00:00+00:00</lastmod>
+    <loc>https://example.org/articles/web-dev-trends/</loc>
+    <lastmod>2025-11-10T10:15:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/welcome/</loc>
-    <lastmod>2025-11-13T09:00:00+00:00</lastmod>
+    <loc>https://example.org/articles/why-static-sites/</loc>
+    <lastmod>2025-11-08T16:45:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/articles/accessibility-best-practices/</loc>
+    <lastmod>2025-11-06T09:20:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.org/articles/</loc>
   </url><url>
     <loc>https://example.org/authors/</loc>
   </url><url>
     <loc>https://example.org/authors/jane-doe/</loc>
+  </url><url>
+    <loc>https://example.org/events/</loc>
   </url>
 </urlset>

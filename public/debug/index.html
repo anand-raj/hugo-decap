@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <title>Tags · My New Hugo Site</title>
+    <title>Debug · My New Hugo Site</title>
     <meta name="description" content="My New Hugo Site">
     <link rel="alternate" type="application/rss+xml" title="My New Hugo Site" href="/index.xml">
     <link rel="stylesheet" href="/css/styles.css">
@@ -17,43 +17,30 @@
     <a href="/">Home</a>
     <a href="/articles/">Articles</a>
     <a href="/events/">Events</a>
-    <a href="/categories/">Categories</a>
-    <a href="/tags/">Tags</a>
   </nav>
   <div class="mobile-toggle" id="mobileToggle">☰</div>
 </header>
 
     <main class="container">
       
-<h1>Tags</h1>
-<div class="cards">
-  
-    <article class="card">
-      <div class="card-body">
-        <h3><a href="/tags/intro/">Intro</a></h3>
-        <p class="meta">Nov 13, 2025 · </p>
-        <p class="excerpt"></p>
-      </div>
-    </article>
-  
-    <article class="card">
-      <div class="card-body">
-        <h3><a href="/tags/welcome/">Welcome</a></h3>
-        <p class="meta">Nov 13, 2025 · </p>
-        <p class="excerpt"></p>
-      </div>
-    </article>
-  
-</div>
-
-
-  <nav class="paginator">
+<article class="post">
+  <header class="post-header">
+    <h1>Debug</h1>
+    <p class="meta">Jan 1, 0001</p>
     
-    <span class="p-page">Page 1 of 1</span>
-    
-  </nav>
+  </header>
 
+  <div class="post-content">
+    <p>{{ range .Site.RegularPages }}</p>
+<ul>
+<li>{{ .Title }} (Section: {{ .Section }}, Type: {{ .Type }})
+{{ end }}</li>
+</ul>
 
+  </div>
+
+  
+</article>
 
     </main>
     <footer class="site-footer">

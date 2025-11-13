@@ -13,12 +13,11 @@
 <section class="grid-overview">
   <h2>Latest Articles</h2>
   <div class="cards">
-  {{ $articles := where .Site.RegularPages "Type" "article" | first 6 }}
+  {{ $articles := where .Site.RegularPages "Section" "articles" | sort "Date" "desc" | first 6 }}
   {{ range $articles }}
     <article class="card">
       {{ with .Params.featuredImage }}<img src="{{ . | relURL }}" alt="{{ $.Title }}"/>{{ end }}
       <div class="card-body">
-        <a class="card-kicker" href="{{ .RelPermalink }}">{{ range first 1 .Params.categories }}{{ . }}{{ end }}</a>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <p class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ with .Params.author }}{{ . }}{{ end }}</p>
         <p class="excerpt">{{ .Summary }}</p>
@@ -31,7 +30,7 @@
 <section class="upcoming-events">
   <h2>Upcoming Events</h2>
   <div class="cards">
-    {{ $events := where .Site.RegularPages "Type" "event" | first 4 }}
+    {{ $events := where .Site.RegularPages "Section" "events" | sort "Date" "desc" | first 4 }}
     {{ range $events }}
       <article class="card event">
         <div class="card-body">
