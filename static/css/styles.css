@@ -15,7 +15,7 @@ body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: linear-gradient(180deg,#faf7f2 0%, #f5f0eb 100%);
-  color: #2c2c2c;
+  color: #000;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.6;
@@ -32,22 +32,22 @@ body{
 }
 .site-brand a{color:var(--accent);text-decoration:none;font-size:1.15rem}
 .main-nav{display:flex;gap:1rem}
-.main-nav a{color:var(--muted);text-decoration:none;padding:.35rem .6rem;border-radius:6px}
+.main-nav a{color:#333;text-decoration:none;padding:.35rem .6rem;border-radius:6px}
 .main-nav a:hover{color:var(--accent);background:var(--glass)}
 
-.mobile-toggle{display:none;color:var(--muted);cursor:pointer}
+.mobile-toggle{display:none;color:#333;cursor:pointer}
 
 .hero{
   padding:3.5rem 0;background:linear-gradient(90deg, rgba(196,30,58,0.08), rgba(196,30,58,0.04));
   margin-bottom:1.5rem;border-radius:12px;
 }
 .hero-inner{max-width:900px;margin:0 auto;text-align:center;padding:2rem}
-.hero h1{font-size:2.1rem;margin:0 0 .5rem}
-.lead{color:var(--muted);margin-bottom:1rem}
+.hero h1{font-size:2.1rem;margin:0 0 .5rem;color:#000}
+.lead{color:#555;margin-bottom:1rem}
 .home-ctas .btn{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;text-decoration:none;margin:0 .4rem}
 .home-ctas .btn.secondary{background:transparent;border:1px solid rgba(196,30,58,0.2);color:var(--accent)}
 
-.grid-overview h2, .upcoming-events h2{margin:1rem 0 0.75rem;color:#fff}
+.grid-overview h2, .upcoming-events h2{margin:1rem 0 0.75rem;color:#000}
 
 .cards{
   display:grid;
@@ -65,19 +65,20 @@ body{
 }
 .card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem}
 .card-body .card-kicker{font-size:.75rem;color:var(--accent);text-decoration:none}
-.card .meta{color:var(--muted);font-size:.85rem;margin:.5rem 0}
-.card .excerpt{color:var(--muted);font-size:.95rem}
+.card-body h3{color:#000}
+.card .meta{color:#666;font-size:.85rem;margin:.5rem 0}
+.card .excerpt{color:#333;font-size:.95rem}
 
 .card.event .event-date{color:var(--accent);font-weight:600}
 
 .post{background:transparent}
-.post-header h1{margin:0 0 .35rem;color:#2c2c2c}
+.post-header h1{margin:0 0 .35rem;color:#000}
 .post-header .hero-image{width:100%;height:auto;border-radius:8px;margin-top:1rem}
-.post-content{margin-top:1rem;color:#3c3c3c}
+.post-content{margin-top:1rem;color:#000}
 .event-details{margin-top:1.25rem;padding:1rem;background:var(--glass);border-radius:8px;color:var(--muted);border-left:3px solid var(--accent)}
 
-.site-footer{padding:2rem 0;color:var(--muted);border-top:1px solid rgba(196,30,58,0.15);margin-top:2rem}
-.footer-nav a{color:var(--muted);text-decoration:none;margin-left:1rem}
+.site-footer{padding:2rem 0;color:#666;border-top:1px solid rgba(196,30,58,0.15);margin-top:2rem}
+.footer-nav a{color:#666;text-decoration:none;margin-left:1rem}
 
 .paginator{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem 0}
 .read-more{display:inline-block;margin-top:0.5rem;color:var(--accent);text-decoration:none;font-weight:500}
