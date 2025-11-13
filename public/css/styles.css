@@ -16,7 +16,7 @@ html,body{height:100%}
 body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,#faf7f2 0%, #f5f0eb 100%);
+  background: var(--bg);
   color: #000;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -27,7 +27,7 @@ body{
 
 .site-header{
   display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 2rem;background:linear-gradient(90deg, #8b1a2e 0%, #6b1425 100%);
+  padding:1rem 2rem;background:var(--accent);
   position:sticky;top:0;z-index:50;
   backdrop-filter: blur(8px);
   border-bottom:1px solid rgba(0,0,0,0.1);
@@ -96,5 +96,5 @@ body{
   .cards{grid-template-columns:1fr}
   .main-nav{display:none}
   .mobile-toggle{display:block}
-  body.nav-open .main-nav{display:flex;position:fixed;left:0;right:0;top:60px;flex-direction:column;background:#8b1a2e;border-bottom:1px solid rgba(0,0,0,0.1);padding:1rem}
+  body.nav-open .main-nav{display:flex;position:fixed;left:0;right:0;top:60px;flex-direction:column;background:var(--accent);border-bottom:1px solid rgba(0,0,0,0.1);padding:1rem}
 }
