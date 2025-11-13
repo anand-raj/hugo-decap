@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>http://localhost:1313/</link>
+    <link>https://example.org/</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Nov 2025 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World: Our First Article</title>
-      <link>http://localhost:1313/articles/hello-world/</link>
+      <link>https://example.org/articles/hello-world/</link>
       <pubDate>Thu, 13 Nov 2025 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/hello-world/</guid>
+      <guid>https://example.org/articles/hello-world/</guid>
       <description>&lt;p&gt;Welcome to our news site — this is a sample article created to show how the theme looks with real content.&lt;/p&gt;&#xA;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting Started with Hugo</title>
-      <link>http://localhost:1313/articles/getting-started-hugo/</link>
+      <link>https://example.org/articles/getting-started-hugo/</link>
       <pubDate>Wed, 12 Nov 2025 14:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/getting-started-hugo/</guid>
+      <guid>https://example.org/articles/getting-started-hugo/</guid>
       <description>&lt;p&gt;Hugo is a fast and flexible static site generator built with Go. In this article, we&amp;rsquo;ll explore the fundamentals.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-choose-hugo&#34;&gt;Why Choose Hugo?&lt;/h2&gt;&#xA;&lt;p&gt;Hugo stands out for its:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Blazing Speed&lt;/strong&gt;: Builds thousands of pages in seconds&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Simple Content Model&lt;/strong&gt;: Just Markdown files in folders&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Flexible Templating&lt;/strong&gt;: Go templates for powerful layouts&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Zero Dependencies&lt;/strong&gt;: Single binary, no runtime required&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Download Hugo from &lt;a href=&#34;https://gohugo.io&#34;&gt;gohugo.io&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Create a new site with &lt;code&gt;hugo new site mysite&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Add content under &lt;code&gt;content/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Run &lt;code&gt;hugo server&lt;/code&gt; to preview locally&lt;/li&gt;&#xA;&lt;li&gt;Deploy the &lt;code&gt;public/&lt;/code&gt; folder&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;That&amp;rsquo;s it! You&amp;rsquo;re ready to start building.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Future of Web Development</title>
-      <link>http://localhost:1313/articles/web-dev-trends/</link>
+      <link>https://example.org/articles/web-dev-trends/</link>
       <pubDate>Mon, 10 Nov 2025 10:15:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/web-dev-trends/</guid>
+      <guid>https://example.org/articles/web-dev-trends/</guid>
       <description>&lt;p&gt;The web development landscape is constantly evolving. Here&amp;rsquo;s what&amp;rsquo;s shaping the future.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-trends&#34;&gt;Key Trends&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-edge-computing&#34;&gt;1. Edge Computing&lt;/h3&gt;&#xA;&lt;p&gt;Bringing computation closer to users for lower latency and better performance.&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-ai-integration&#34;&gt;2. AI Integration&lt;/h3&gt;&#xA;&lt;p&gt;Machine learning models are becoming more accessible for web developers, enabling smarter applications.&lt;/p&gt;&#xA;&lt;h3 id=&#34;3-web-standards-evolution&#34;&gt;3. Web Standards Evolution&lt;/h3&gt;&#xA;&lt;p&gt;New browser APIs continue to enhance what&amp;rsquo;s possible in the browser without external plugins.&lt;/p&gt;&#xA;&lt;h3 id=&#34;4-static-site-generators&#34;&gt;4. Static Site Generators&lt;/h3&gt;&#xA;&lt;p&gt;SSGs like Hugo are gaining popularity for their performance and simplicity benefits.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why Static Sites Matter</title>
-      <link>http://localhost:1313/articles/why-static-sites/</link>
+      <link>https://example.org/articles/why-static-sites/</link>
       <pubDate>Sat, 08 Nov 2025 16:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/why-static-sites/</guid>
+      <guid>https://example.org/articles/why-static-sites/</guid>
       <description>&lt;p&gt;Static sites are experiencing a renaissance. Let&amp;rsquo;s explore why they&amp;rsquo;re the right choice for many projects.&lt;/p&gt;&#xA;&lt;h2 id=&#34;performance-first&#34;&gt;Performance First&lt;/h2&gt;&#xA;&lt;p&gt;Static sites are served as plain HTML files. No database queries, no server-side rendering delays—just pure speed. This translates to better user experience and improved SEO.&lt;/p&gt;&#xA;&lt;h2 id=&#34;security-by-default&#34;&gt;Security by Default&lt;/h2&gt;&#xA;&lt;p&gt;With no server-side logic or database, there&amp;rsquo;s simply less to attack. Your site is as secure as your hosting platform.&lt;/p&gt;&#xA;&lt;h2 id=&#34;simplicity&#34;&gt;Simplicity&lt;/h2&gt;&#xA;&lt;p&gt;Developers love static sites because:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Accessibility Best Practices for Web</title>
-      <link>http://localhost:1313/articles/accessibility-best-practices/</link>
+      <link>https://example.org/articles/accessibility-best-practices/</link>
       <pubDate>Thu, 06 Nov 2025 09:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/articles/accessibility-best-practices/</guid>
+      <guid>https://example.org/articles/accessibility-best-practices/</guid>
       <description>&lt;p&gt;Accessibility isn&amp;rsquo;t optional—it&amp;rsquo;s a fundamental aspect of good web design. Here&amp;rsquo;s how to get it right.&lt;/p&gt;&#xA;&lt;h2 id=&#34;core-principles&#34;&gt;Core Principles&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-perceivable&#34;&gt;1. Perceivable&lt;/h3&gt;&#xA;&lt;p&gt;Information must be visible or hearable:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Provide alt text for images&lt;/li&gt;&#xA;&lt;li&gt;Use sufficient color contrast&lt;/li&gt;&#xA;&lt;li&gt;Don&amp;rsquo;t rely on color alone to convey information&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;2-operable&#34;&gt;2. Operable&lt;/h3&gt;&#xA;&lt;p&gt;Users must be able to interact with your site:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Keyboard navigation must work&lt;/li&gt;&#xA;&lt;li&gt;Avoid auto-playing media&lt;/li&gt;&#xA;&lt;li&gt;Provide skip links for navigation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;3-understandable&#34;&gt;3. Understandable&lt;/h3&gt;&#xA;&lt;p&gt;Content should be clear and predictable:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Editor</title>
-      <link>http://localhost:1313/authors/jane-doe/</link>
+      <link>https://example.org/authors/jane-doe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/authors/jane-doe/</guid>
+      <guid>https://example.org/authors/jane-doe/</guid>
       <description>&lt;p&gt;Jane writes about tech, policy and community events.&lt;/p&gt;</description>
     </item>
   </channel>

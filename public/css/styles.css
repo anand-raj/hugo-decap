@@ -1,9 +1,9 @@
 :root{
-  --bg: #0f1724;
-  --card: #0b1220;
-  --muted: #94a3b8;
-  --accent: #06b6d4;
-  --glass: rgba(255,255,255,0.03);
+  --bg: #faf7f2;
+  --card: #fff5f0;
+  --muted: #8b7355;
+  --accent: #c41e3a;
+  --glass: rgba(196,30,58,0.04);
   --max-width: 1100px;
   --radius: 10px;
   --gap: 1.25rem;
@@ -14,8 +14,8 @@ html,body{height:100%}
 body{
   margin:0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg,#071027 0%, #071827 100%);
-  color: #e6eef6;
+  background: linear-gradient(180deg,#faf7f2 0%, #f5f0eb 100%);
+  color: #2c2c2c;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.6;
@@ -25,26 +25,27 @@ body{
 
 .site-header{
   display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 2rem;background:transparent;
+  padding:1rem 2rem;background:rgba(255,255,255,0.7);
   position:sticky;top:0;z-index:50;
   backdrop-filter: blur(8px);
+  border-bottom:1px solid rgba(196,30,58,0.1);
 }
 .site-brand a{color:var(--accent);text-decoration:none;font-size:1.15rem}
 .main-nav{display:flex;gap:1rem}
 .main-nav a{color:var(--muted);text-decoration:none;padding:.35rem .6rem;border-radius:6px}
-.main-nav a:hover{color:#fff;background:var(--glass)}
+.main-nav a:hover{color:var(--accent);background:var(--glass)}
 
 .mobile-toggle{display:none;color:var(--muted);cursor:pointer}
 
 .hero{
-  padding:3.5rem 0;background:linear-gradient(90deg, rgba(6,182,212,0.06), rgba(6,182,212,0.02));
+  padding:3.5rem 0;background:linear-gradient(90deg, rgba(196,30,58,0.08), rgba(196,30,58,0.04));
   margin-bottom:1.5rem;border-radius:12px;
 }
 .hero-inner{max-width:900px;margin:0 auto;text-align:center;padding:2rem}
 .hero h1{font-size:2.1rem;margin:0 0 .5rem}
 .lead{color:var(--muted);margin-bottom:1rem}
-.home-ctas .btn{background:var(--accent);color:#022029;padding:.6rem 1rem;border-radius:8px;text-decoration:none;margin:0 .4rem}
-.home-ctas .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.home-ctas .btn{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;text-decoration:none;margin:0 .4rem}
+.home-ctas .btn.secondary{background:transparent;border:1px solid rgba(196,30,58,0.2);color:var(--accent)}
 
 .grid-overview h2, .upcoming-events h2{margin:1rem 0 0.75rem;color:#fff}
 
@@ -55,10 +56,11 @@ body{
   margin-top:1rem;
 }
 .card{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  background:linear-gradient(180deg, #fff, #fff5f0);
   border-radius:var(--radius);
   padding:1rem;
-  box-shadow: 0 4px 18px rgba(2,6,23,0.6);
+  box-shadow: 0 2px 8px rgba(196,30,58,0.08);
+  border:1px solid rgba(196,30,58,0.1);
   overflow:hidden;
 }
 .card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:.75rem}
@@ -69,12 +71,12 @@ body{
 .card.event .event-date{color:var(--accent);font-weight:600}
 
 .post{background:transparent}
-.post-header h1{margin:0 0 .35rem}
+.post-header h1{margin:0 0 .35rem;color:#2c2c2c}
 .post-header .hero-image{width:100%;height:auto;border-radius:8px;margin-top:1rem}
-.post-content{margin-top:1rem;color:#dbe7f5}
-.event-details{margin-top:1.25rem;padding:1rem;background:var(--glass);border-radius:8px;color:var(--muted)}
+.post-content{margin-top:1rem;color:#3c3c3c}
+.event-details{margin-top:1.25rem;padding:1rem;background:var(--glass);border-radius:8px;color:var(--muted);border-left:3px solid var(--accent)}
 
-.site-footer{padding:2rem 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);margin-top:2rem}
+.site-footer{padding:2rem 0;color:var(--muted);border-top:1px solid rgba(196,30,58,0.15);margin-top:2rem}
 .footer-nav a{color:var(--muted);text-decoration:none;margin-left:1rem}
 
 .paginator{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem 0}
@@ -90,5 +92,5 @@ body{
   .cards{grid-template-columns:1fr}
   .main-nav{display:none}
   .mobile-toggle{display:block}
-  body.nav-open .main-nav{display:flex;position:fixed;left:0;right:0;top:60px;flex-direction:column;background:#04111b;padding:1rem}
+  body.nav-open .main-nav{display:flex;position:fixed;left:0;right:0;top:60px;flex-direction:column;background:#fff;border-bottom:1px solid rgba(196,30,58,0.1);padding:1rem}
 }
