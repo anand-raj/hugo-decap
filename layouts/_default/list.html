@@ -1,7 +1,9 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
 <div class="cards">
-  {{ range .Paginator.Pages }}
+  {{ $pages := where site.RegularPages "Section" .Section }}
+  {{ $pages = sort $pages "Date" "desc" }}
+  {{ range $pages }}
     <article class="card">
       <div class="card-body">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
