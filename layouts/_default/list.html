@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<div class="cards">
+  {{ range .Paginator.Pages }}
+    <article class="card">
+      <div class="card-body">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ with .Params.author }}{{ . }}{{ end }}</p>
+        <p class="excerpt">{{ .Summary }}</p>
+      </div>
+    </article>
+  {{ end }}
+</div>
+
+{{ partial "paginator.html" . }}
+{{ end }}

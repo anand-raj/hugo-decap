@@ -1,0 +1,46 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-inner">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="lead">{{ with .Site.Params.tagline }}{{ . }}{{ else }}Latest news, articles and events.{{ end }}</p>
+    <nav class="home-ctas">
+      <a class="btn" href="{{ "articles/" | relURL }}">Articles</a>
+      <a class="btn secondary" href="{{ "events/" | relURL }}">Events</a>
+    </nav>
+  </div>
+</section>
+
+<section class="grid-overview">
+  <h2>Latest Articles</h2>
+  <div class="cards">
+  {{ $articles := where .Site.RegularPages "Type" "article" | first 6 }}
+  {{ range $articles }}
+    <article class="card">
+      {{ with .Params.featuredImage }}<img src="{{ . | relURL }}" alt="{{ $.Title }}"/>{{ end }}
+      <div class="card-body">
+        <a class="card-kicker" href="{{ .RelPermalink }}">{{ range first 1 .Params.categories }}{{ . }}{{ end }}</a>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ with .Params.author }}{{ . }}{{ end }}</p>
+        <p class="excerpt">{{ .Summary }}</p>
+      </div>
+    </article>
+  {{ end }}
+  </div>
+</section>
+
+<section class="upcoming-events">
+  <h2>Upcoming Events</h2>
+  <div class="cards">
+    {{ $events := where .Site.RegularPages "Type" "event" | first 4 }}
+    {{ range $events }}
+      <article class="card event">
+        <div class="card-body">
+          <p class="event-date">{{ with .Params.eventDate }}{{ . }}{{ else }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</p>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p class="meta">{{ with .Params.location }}{{ . }}{{ end }}</p>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

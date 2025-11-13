@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="post">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    <p class="meta">{{ .Date.Format "Jan 2, 2006" }}{{ with .Params.author }} · {{ . }}{{ end }}</p>
+    {{ with .Params.featuredImage }}<img class="hero-image" src="{{ . | relURL }}" alt="{{ $.Title }}"/>{{ end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{ if eq .Type "event" }}
+  <aside class="event-details">
+    <h3>Event Info</h3>
+    <p><strong>Date:</strong> {{ with .Params.eventDate }}{{ . }}{{ else }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</p>
+    <p><strong>Location:</strong> {{ with .Params.location }}{{ . }}{{ end }}</p>
+  </aside>
+  {{ end }}
+</article>
+{{ end }}
