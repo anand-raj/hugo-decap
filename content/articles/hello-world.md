@@ -5,8 +5,6 @@ draft = false
 type = "article"
 description = "A quick welcome article to show the site layout."
 author = "Jane Doe"
-tags = ["welcome","intro"]
-categories = ["Announcements"]
 featuredImage = "images/sample-article.jpg"
 +++
 
