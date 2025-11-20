@@ -5,6 +5,7 @@
   {{ $pages = sort $pages "Date" "desc" }}
   {{ range $pages }}
     <article class="card">
+      {{ with .Params.featuredImage }}<img class="card-image" src="{{ . | relURL }}" alt="{{ $.Title }}" />{{ end }}
       <div class="card-body">
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <p class="meta">{{ .Date.Format "Jan 2, 2006" }} · {{ with .Params.author }}{{ . }}{{ end }}</p>

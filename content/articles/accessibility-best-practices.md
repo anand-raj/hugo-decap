@@ -5,7 +5,7 @@ draft = false
 type = "article"
 description = "Building inclusive websites that work for everyone."
 author = "Jane Doe"
-featuredImage = "images/accessibility.jpg"
+featuredImage = ""
 +++
 
 Accessibility isn't optional—it's a fundamental aspect of good web design. Here's how to get it right.
