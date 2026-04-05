@@ -5,7 +5,7 @@ draft = false
 type = "article"
 description = "Exploring emerging trends in web development and what developers should know."
 author = "Jane Doe"
-featuredImage = "images/web-dev-trends.jpg"
+featuredImage = "/images/uploads/web-development.jpg"
 +++
 
 The web development landscape is constantly evolving. Here's what's shaping the future.
