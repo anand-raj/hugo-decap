@@ -1,0 +1,54 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+site_url: "http://localhost:1313"
+
+# Enable local backend (helpful for development with decap proxy)
+local_backend: true
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "content/articles"
+    create: true
+    slug: "{{slug}}"
+    format: "toml"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Type", name: "type", widget: "hidden", default: "article" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "authors"
+    label: "Authors"
+    folder: "content/authors"
+    create: true
+    slug: "{{slug}}"
+    format: "toml"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Title (optional)", name: "title", widget: "string", required: false }
+      - { label: "Avatar", name: "avatar", widget: "image", required: false }
+      - { label: "Bio", name: "bio", widget: "markdown", required: false }
+
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{slug}}"
+    format: "toml"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

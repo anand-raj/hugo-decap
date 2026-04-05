@@ -1,0 +1,26 @@
+[build]
+  # Build command for Hugo and the directory Netlify should publish
+  command = "hugo"
+  publish = "public"
+
+# Optional: set environment for production builds
+[context.production.environment]
+  HUGO_ENV = "production"
+  HUGO_VERSION = "0.151.0"
+
+# Redirects needed for Decap (Netlify CMS) admin UI
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+  force = true
+
+# Notes:
+# - Enable Netlify Identity + Git Gateway in your Netlify site's settings to allow Decap CMS (git-gateway) backend to work.
+# - If you use a different backend (GitHub/GitLab OAuth), update the CMS backend settings accordingly.
