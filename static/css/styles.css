@@ -1,28 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poller+One&display=swap');
+
 :root{
   /* Base colors */
-  --bg: #faf7f2;
+  --bg: #f4f9f8;
   --white: #ffffff;
-  --text: #000000;
+  --text: #053f3c;
   --inverse-text: #ffffff;
 
   /* Neutral / muted */
-  --muted: #8b7355;
-  --muted-text: #666666;
-  --muted-soft: #555555;
-  --muted-dark: #333333;
+  --muted: #2f6d67;
+  --muted-text: #556b69;
+  --muted-soft: #6b8c89;
+  --muted-dark: #365e5b;
 
   /* Accent */
-  --accent: #800000;
-  --accent-overlay: rgba(128,0,0,0.2);
-  --glass: rgba(128,0,0,0.04);
+  --accent: #066b68;
+  --accent-overlay: rgba(6,107,104,0.18);
+  --glass: rgba(6,107,104,0.06);
 
   /* Borders & shadows */
-  --container-border: #e5e7eb;
-  --card-border: #c6c6c6;
-  --border-light: rgba(0,0,0,0.04);
-  --border-strong: rgba(0,0,0,0.1);
-  --shadow-soft: rgba(0,0,0,0.06);
-  --shadow-mid: rgba(0,0,0,0.2);
+  --container-border: #e6f0ef;
+  --card-border: #cfe7e5;
+  --border-light: rgba(5,63,60,0.04);
+  --border-strong: rgba(5,63,60,0.12);
+  --shadow-soft: rgba(2,44,42,0.06);
+  --shadow-mid: rgba(2,44,42,0.18);
   --white-overlay: rgba(255,255,255,0.2);
 
   --max-width: 800px;
@@ -60,7 +62,34 @@ body{
   border-bottom:1px solid var(--border-strong);
   box-shadow: 0 2px 8px var(--shadow-mid);
 }
-.site-brand a{color:var(--inverse-text);text-decoration:none;font-size:1.15rem;font-weight:bold}
+.site-brand a{
+  color: transparent;
+  -webkit-text-stroke: .5px var(--inverse-text);
+  -webkit-text-fill-color: transparent;
+  /* Fallback outline for browsers without -webkit-text-stroke */
+  text-shadow:
+    2px 2px 0 var(--inverse-text),
+    -2px -2px 0 var(--inverse-text),
+    2px -2px 0 var(--inverse-text),
+    -2px 2px 0 var(--inverse-text),
+    0 2px 0 var(--inverse-text),
+    0 -2px 0 var(--inverse-text),
+    2px 0 0 var(--inverse-text),
+    -2px 0 0 var(--inverse-text);
+  text-decoration:none;
+  font-family:'Poller One', Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size:3rem;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:8px;
+}
+
+/* If the browser supports text-stroke, remove the shadow fallback so the fill remains fully transparent */
+@supports (-webkit-text-stroke: 1px) {
+  .site-brand a {
+    text-shadow: none;
+  }
+}
 .main-nav{display:flex;gap:1rem}
 .main-nav a{color:var(--inverse-text);text-decoration:none;padding:.35rem .6rem;border-radius:6px}
 .main-nav a:hover{color:var(--inverse-text);background:var(--white-overlay)}
@@ -105,7 +134,7 @@ body{
 .post{background:transparent}
 .post-header h1{margin:0 0 .35rem;color:var(--text)}
 .post-header .hero-image{width:100%;height:auto;border-radius:8px;margin-top:1rem}
-.post-content{margin-top:1rem;color:#000}
+.post-content{margin-top:1rem;color:var(--text)}
 .event-details{margin-top:1.25rem;padding:1rem;background:var(--glass);border-radius:8px;color:var(--muted);border-left:3px solid var(--accent)}
 
 .site-footer{padding:2rem 0;color:var(--muted-text);border-top:1px solid var(--accent-overlay);margin-top:2rem;background:var(--white);border-radius:0 0 10px 10px}
@@ -124,5 +153,6 @@ body{
   .cards{grid-template-columns:1fr}
   .main-nav{display:none}
   .mobile-toggle{display:block}
+  .site-brand a{font-size:1.25rem}
   body.nav-open .main-nav{display:flex;position:fixed;left:0;right:0;top:60px;flex-direction:column;background:var(--accent);border-bottom:1px solid rgba(0,0,0,0.1);padding:1rem}
 }
