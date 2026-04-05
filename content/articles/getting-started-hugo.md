@@ -1,7 +1,7 @@
 +++
 title = "Getting Started with Hugo"
 date = "2025-11-12T14:30:00Z"
-draft = false
+draft = true
 type = "article"
 description = "Learn the basics of Hugo static site generator and build your first site."
 author = "Jane Doe"
