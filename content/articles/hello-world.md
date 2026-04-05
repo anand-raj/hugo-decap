@@ -5,7 +5,7 @@ draft = false
 type = "article"
 description = "A quick welcome article to show the site layout."
 author = "Jane Doe"
-featuredImage = "images/sample-article.jpg"
+featuredImage = "/images/uploads/helloworld.jpg"
 +++
 
 Welcome to our news site — this is a sample article created to show how the theme looks with real content.

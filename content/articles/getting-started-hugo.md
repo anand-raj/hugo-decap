@@ -5,7 +5,7 @@ draft = false
 type = "article"
 description = "Learn the basics of Hugo static site generator and build your first site."
 author = "Jane Doe"
-featuredImage = "images/hugo-guide.jpg"
+featuredImage = "/images/uploads/hugo-logo-wide.svg"
 +++
 
 Hugo is a fast and flexible static site generator built with Go. In this article, we'll explore the fundamentals.

@@ -4,57 +4,83 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
-    <!-- Include the script that enables Netlify Identity on this page. -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Load Netlify Identity only when not running locally to avoid redirecting to production identity URL. -->
+    <script>
+      (function () {
+        try {
+          var host = window.location.hostname;
+          if (host && host !== 'localhost' && host !== '127.0.0.1') {
+            var s = document.createElement('script');
+            s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+            document.head.appendChild(s);
+          }
+        } catch (e) {
+          /* ignore */
+        }
+      })();
+    </script>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      // Register a minimal local media library so the CMS 'local' media_library works.
-      // This implementation uses the browser file picker and returns data-URLs.
+      // Register site styles in the CMS preview iframe so the preview matches the site.
       (function () {
-        function readFileAsDataURL(file) {
-          return new Promise(function (resolve, reject) {
-            var reader = new FileReader();
-            reader.onload = function () { resolve({ name: file.name, url: reader.result }); };
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
-          });
-        }
-
-        var localLibrary = {
-          name: 'local',
-          label: 'Local',
-          // open should return a Promise that resolves to an array of file objects {name, url}
-          open: function () {
-            return new Promise(function (resolve) {
-              var input = document.createElement('input');
-              input.type = 'file';
-              input.accept = '*/*';
-              input.multiple = true;
-              input.onchange = function () {
-                var files = Array.prototype.slice.call(input.files || []);
-                Promise.all(files.map(readFileAsDataURL)).then(resolve);
-              };
-              // trigger dialog
-              input.click();
+        var stylePath = '/css/styles.css';
+        function register() {
+          if (window.CMS && typeof window.CMS.registerPreviewStyle === 'function') {
+            try { window.CMS.registerPreviewStyle(stylePath); } catch (e) { /* ignore */ }
+          } else {
+            window.addEventListener('decap:init', function () {
+              if (window.CMS && typeof window.CMS.registerPreviewStyle === 'function') {
+                try { window.CMS.registerPreviewStyle(stylePath); } catch (e) { /* ignore */ }
+              }
             });
-          },
-          close: function () { /* no-op for this simple implementation */ }
-        };
-
-        if (window.CMS && typeof window.CMS.registerMediaLibrary === 'function') {
-          window.CMS.registerMediaLibrary(localLibrary);
-        } else {
-          // If CMS isn't initialized yet, wait for it
-          window.addEventListener('decap:init', function () {
-            if (window.CMS && typeof window.CMS.registerMediaLibrary === 'function') {
-              window.CMS.registerMediaLibrary(localLibrary);
+          }
+        }
+        register();
+      })();
+    </script>
+    <script>
+      // When an entry is published the preview iframe can cache assets. Detect publish
+      // clicks and reload preview iframes shortly after so newly uploaded images appear.
+      (function () {
+        function reloadPreviewIframes() {
+          var iframes = document.querySelectorAll('iframe');
+          iframes.forEach(function (f) {
+            try {
+              // try a same-origin reload
+              f.contentWindow.location.reload();
+            } catch (e) {
+              // fallback: reset src to force reload (may navigate if cross-origin)
+              f.src = f.src;
             }
           });
         }
+
+        // Listen for clicks on publish buttons (text may vary by locale/version)
+        document.addEventListener('click', function (e) {
+          var el = e.target;
+          if (!el) return;
+          var text = (el.innerText || el.textContent || '').trim().toLowerCase();
+          var isPublish = text === 'publish' || text === 'save & publish' || text.indexOf('publish') !== -1;
+          if (isPublish) {
+            // wait for the backend commit/upload to complete
+            setTimeout(reloadPreviewIframes, 1800);
+            // also reload a bit later in case commit takes longer
+            setTimeout(reloadPreviewIframes, 3800);
+          }
+        }, true);
+
+        // Also listen for keyboard-driven publish actions (Enter on publish dialog)
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') {
+            // small delay to allow click handlers to run first
+            setTimeout(function () { setTimeout(reloadPreviewIframes, 1600); }, 50);
+          }
+        });
       })();
     </script>
+    
   </body>
 </html>
