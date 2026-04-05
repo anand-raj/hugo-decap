@@ -5,3 +5,7 @@ title = 'PCAI'
 [taxonomies]
 category = ""
 tag = ""
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
