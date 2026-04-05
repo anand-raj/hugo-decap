@@ -5,7 +5,7 @@ draft = false
 type = "article"
 description = "The case for static site generators in 2025 and beyond."
 author = "Jane Doe"
-featuredImage = "images/static-sites.jpg"
+featuredImage = "/images/uploads/staticsites.jpg"
 +++
 
 Static sites are experiencing a renaissance. Let's explore why they're the right choice for many projects.
