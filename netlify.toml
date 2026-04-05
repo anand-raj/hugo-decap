@@ -10,6 +10,13 @@
 
 # Redirects needed for Decap (Netlify CMS) admin UI
 [[redirects]]
+  # Ensure the raw config file is served directly (prevent wildcard rewrite)
+  from = "/admin/config.yml"
+  to = "/admin/config.yml"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
